@@ -1,0 +1,11 @@
+{
+  "folders": [
+    { "name": "Week 1", "path": "exercises/week_01" }
+  ],
+  "settings": {
+    "[cpp]": {
+      "editor.tabSize": 2,
+      "editor.insertSpaces": true
+    }
+  }
+}
