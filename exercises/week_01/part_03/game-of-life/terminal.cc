@@ -18,8 +18,8 @@ void GameOfLifeTerminal::PrintInstructions() {
 void GameOfLifeTerminal::PrintCells() {
   std::cout << "The current Life configuration is:\n";
 
-  for (int row = 1; row <= this->game.rows; ++row) {
-    for (int column = 1; column <= this->game.columns; ++column) 
+  for (int row = 0; row < this->game.rows; ++row) {
+    for (int column = 0; column < this->game.columns; ++column) 
       std::cout << (this->game.grid[row][column] == 1 ? '*' : ' ');
 
     std::cout << '\n';
@@ -40,7 +40,7 @@ void GameOfLifeTerminal::PromptLivingCellCoordinates() {
   while (row != -1 || column != -1) {
     if (row >= 1 && row <= this->game.rows) {
       if (column >= 1 && column <= this->game.columns) {
-        this->game.grid[row][column] = 1;
+        this->game.grid[row - 1][column - 1] = 1;
       } else {
         std::cout << "Column " << column << " is out of range.\n";
       }

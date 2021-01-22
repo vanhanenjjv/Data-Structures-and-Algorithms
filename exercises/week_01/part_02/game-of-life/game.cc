@@ -1,14 +1,22 @@
 #include "game.h"
 
+GameOfLife::GameOfLife() {}
+
+GameOfLife::GameOfLife(int rows, int columns) {
+  this->rows = rows;
+  this->columns = columns;
+}
+
 void GameOfLife::Initialize() {
   // Set all of the cells to zero
-  for (int row = 0; row <= this->rows + 1; ++row)
-    for (int column = 0; column <= this->columns + 1; ++column)
-      this->grid[row][column] = 0;
+  this->grid.resize(this->rows + 2);
+
+  for (int row = 0; row < this->rows + 2; ++row)
+    this->grid[row].resize(this->columns + 2);
 }
 
 void GameOfLife::Update() {
-  int new_grid[this->rows + 2][this->columns + 2];
+  std::vector<std::vector<int>> new_grid(this->grid);
 
   for (int row = 1; row <= this->rows; ++row) {
     for (int column = 1; column <= this->columns; ++column) {
